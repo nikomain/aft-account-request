@@ -45,5 +45,18 @@ locals {
       }
       customizations_name = "PRODUCTION"
     }
+
+    staging = {
+      name              = "Staging Account"
+      organization_unit = "Staging"
+      email             = local.email_secrets["production_account_email"]
+      sso_email         = local.sso_user_email
+      first_name        = "Staging"
+      last_name         = "User"
+      tags = {
+        "ABC:Environment" = "STAGING"
+      }
+      customizations_name = "STAGING"
+    }
   }
 }
